@@ -1,0 +1,79 @@
+#equipe {
+  @include spacing-section;
+  text-align: center;
+  background-color: $color-white;
+  position: relative;
+  min-height: 70vh;
+
+  @include responsive-tablet {
+    min-height: auto;
+  }
+
+  .grid-layout {
+    .section-title {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding-bottom: $gap-6;
+
+      @include responsive-tablet {
+        padding-bottom: $gap-4;
+      }
+
+      h2 {
+        @include title-section();
+        color: $bg-main;
+      }
+
+      hr {
+        @include title-section-line();
+        background-color: $color-main;
+      }
+    }
+
+    #description {
+      width: 100%;
+
+      @include flexbox-between;
+
+      @include responsive-tablet {
+        flex-direction: column;
+      }
+
+      p {
+        max-width: 60%;
+
+        font: {
+          size: 2.15rem;
+        }
+        line-height: 3rem;
+        text-align: left;
+        color: $bg-secondary;
+
+        @include responsive-tablet {
+          text-align: center;
+          max-width: none;
+
+          font: {
+            size: 1.875rem;
+          }
+        }
+      }
+
+      img {
+        width: 100%;
+        height: auto;
+        max-width: 380px;
+        position: absolute;
+        right: 3px;
+        bottom: 3px;
+
+        @include responsive-tablet {
+          position: initial;
+          margin-top: $gap-4;
+        }
+      }
+    }
+  }
+}

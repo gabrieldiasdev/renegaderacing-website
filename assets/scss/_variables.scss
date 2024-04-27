@@ -1,0 +1,111 @@
+$font-main: 'Archivo';
+
+$color-main: #e72224;
+$color-white: #ffffff;
+$color-gray: #7e8288;
+$bg-main: #111111;
+$bg-secondary: #151515;
+$bg-border: #1f1f1f;
+
+$gap-0: 0px;
+$gap-1: 8px;
+$gap-2: 16px;
+$gap-3: 24px;
+$gap-4: 32px;
+$gap-5: 48px;
+$gap-6: 64px;
+$gap-7: 72px;
+$gap-8: 96px;
+$gap-9: 128px;
+
+@mixin responsive-desktop {
+  @media screen and (max-width: 1200px) {
+    @content;
+  }
+}
+
+@mixin responsive-tablet {
+  @media screen and (max-width: 992px) {
+    @content;
+  }
+}
+
+@mixin responsive-mobile {
+  @media screen and (max-width: 768px) {
+    @content;
+  }
+}
+
+@mixin spacing-section() {
+  padding: $gap-6 $gap-5;
+  @include responsive-tablet {
+    padding: $gap-5 $gap-4;
+  }
+}
+
+@mixin flexbox-between() {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+@mixin flexbox-center() {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin grid-layout() {
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
+@mixin title-section {
+  padding-bottom: $gap-1;
+  color: $color-white;
+  font: {
+    size: 3.2rem;
+    weight: 600;
+  }
+
+  @include responsive-tablet {
+    font: {
+      size: 3rem;
+    }
+  }
+
+  @include responsive-mobile {
+    font: {
+      size: 2.75rem;
+    }
+  }
+}
+
+@mixin title-section-line {
+  width: 80px;
+  height: 5px;
+  border-radius: 15px;
+  background-color: $bg-main;
+  border: none;
+}
+
+@mixin hover-link() {
+  &::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 1px;
+    bottom: -7px;
+    left: 0;
+    background: linear-gradient(270deg, $color-main 0%, #1d1616 100%);
+    transform-origin: bottom right;
+    transition: transform 0.5s cubic-bezier(0.86, 0, 0.07, 1);
+  }
+
+  &:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+  }
+}

@@ -1,0 +1,39 @@
+#s-home {
+  @include flexbox-center;
+  width: 100%;
+  padding: 0px 30px;
+  background: {
+    color: $bg-main;
+    image: url('../images/bg-home.webp');
+    position: center top;
+    repeat: no-repeat;
+    size: cover;
+  }
+
+  min-height: calc(100vh - 180px);
+
+  @include responsive-tablet {
+    min-height: calc(100vh - 100px);
+  }
+
+  h1 {
+    font: {
+      size: 4rem;
+      weight: 700;
+    }
+
+    color: $color-white;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
+
+    @include responsive-tablet {
+      font: {
+        size: 3rem;
+      }
+      text-align: center;
+    }
+
+    span {
+      color: $color-main;
+    }
+  }
+}

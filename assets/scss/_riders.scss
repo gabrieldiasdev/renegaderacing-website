@@ -1,0 +1,182 @@
+#pilotos {
+  @include spacing-section;
+  text-align: center;
+  background-color: $bg-main;
+
+  .grid-layout {
+    .section-title {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding-bottom: $gap-6;
+
+      @include responsive-tablet {
+        padding-bottom: $gap-4;
+      }
+
+      h2 {
+        @include title-section();
+        color: $color-white;
+      }
+
+      hr {
+        @include title-section-line();
+        background-color: $color-main;
+      }
+
+      span {
+        margin-top: $gap-1;
+        color: $color-gray;
+
+        font: {
+          size: 1.25rem;
+          weight: 300;
+        }
+
+        @include responsive-tablet {
+          display: none;
+        }
+      }
+    }
+
+    .riders {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      justify-items: center;
+      row-gap: $gap-5;
+      column-gap: $gap-3;
+
+      @include responsive-tablet {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      @include responsive-mobile {
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: $gap-3;
+      }
+
+      .rider-card {
+        max-width: 200px;
+        text-align: center;
+
+        display: flex;
+        flex-direction: column;
+
+        @include responsive-tablet {
+          max-width: 160px;
+        }
+
+        @include responsive-mobile {
+          max-width: 130px;
+        }
+
+        &:nth-child(n + 5) {
+          display: none;
+        }
+
+        .rider-img {
+          width: 100%;
+          height: 200px;
+          border-radius: 50%;
+          border: 2px solid $color-main;
+          overflow: hidden;
+          position: relative;
+          user-select: none;
+
+          @include responsive-tablet {
+            height: 160px;
+          }
+
+          @include responsive-mobile {
+            height: 130px;
+          }
+
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            transition: transform 0.3s ease, filter 0.3s ease;
+          }
+
+          &:hover img {
+            transform: scale(1.1);
+            filter: brightness(0.5);
+          }
+
+          .rider-number {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: $color-white;
+            font: {
+              size: 3rem;
+              weight: 600;
+            }
+            user-select: none;
+            opacity: 0;
+            transition: opacity 0.5s;
+          }
+
+          &:hover .rider-number {
+            opacity: 1;
+          }
+        }
+
+        p {
+          margin-top: $gap-2;
+          font: {
+            size: 2rem;
+            weight: 500;
+          }
+          color: $color-white;
+          line-height: 2.2rem;
+
+          @include responsive-tablet {
+            font: {
+              size: 1.625rem;
+              weight: 500;
+            }
+          }
+
+          @include responsive-mobile {
+            font: {
+              size: 1.5rem;
+              weight: 400;
+            }
+          }
+
+          span {
+            display: none;
+
+            @include responsive-tablet {
+              display: inline;
+            }
+          }
+        }
+      }
+    }
+
+    button {
+      display: none;
+      margin-top: $gap-6;
+      padding: 10px $gap-3;
+      border: none;
+      border-radius: 5px;
+      background-color: $color-white;
+      color: $bg-main;
+      cursor: pointer;
+      font: {
+        size: 1.625rem;
+        weight: 600;
+      }
+      transition: padding 0.4s ease;
+
+      &:hover {
+        padding: 10px $gap-4;
+      }
+    }
+  }
+}

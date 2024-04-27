@@ -1,0 +1,81 @@
+footer {
+  width: 100%;
+  height: auto;
+  background-color: $color-main;
+  color: $color-white;
+  padding: $gap-3 0px;
+
+  @include responsive-desktop {
+    padding: $gap-3 $gap-2;
+  }
+
+  .grid-layout {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+
+    div {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      a {
+        &:nth-child(1) {
+          margin-right: $gap-2;
+        }
+      }
+
+      #instagram-icon {
+        transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        &:hover {
+          transform: translate(0, -6px);
+        }
+      }
+
+      #discord-icon {
+        transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        &:hover {
+          transform: rotate(360deg);
+        }
+      }
+    }
+  }
+
+  p {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    font-size: 1.8rem;
+
+    @include responsive-tablet {
+      font-size: 1.6rem;
+    }
+
+    &::selection {
+      background-color: $color-white;
+      color: $color-main;
+    }
+
+    a img {
+      display: inline-block;
+      width: 100%;
+      height: auto;
+      max-width: 50px;
+    }
+  }
+
+  @include responsive-desktop {
+    .grid-layout {
+      text-align: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: $gap-5;
+
+      div {
+        display: none;
+      }
+    }
+  }
+}

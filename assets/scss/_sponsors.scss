@@ -1,0 +1,76 @@
+#parceiros {
+  padding: $gap-6 0px;
+  text-align: center;
+  background-color: $color-white;
+
+  @include responsive-tablet {
+    padding: $gap-5 0px;
+  }
+
+  .grid-layout {
+    .section-title {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding-bottom: $gap-6;
+
+      @include responsive-tablet {
+        padding-bottom: $gap-4;
+      }
+
+      h2 {
+        @include title-section();
+        color: $bg-main;
+      }
+
+      hr {
+        @include title-section-line();
+        background-color: $color-main;
+      }
+    }
+
+    .sponsors {
+      height: 150px;
+      margin: auto;
+      overflow: hidden;
+      position: relative;
+      width: auto;
+      border-right: 2px solid $color-main;
+      border-left: 2px solid $color-main;
+
+      @include responsive-tablet {
+        height: 120px;
+      }
+
+      .slider-track {
+        animation: scroll 30s linear infinite;
+        display: flex;
+        width: calc(250px * 18);
+        height: 100%;
+
+        &:hover {
+          animation-play-state: paused;
+        }
+
+        .slide {
+          height: 100%;
+          width: 250px;
+          border: 2px solid $color-main;
+          overflow: hidden;
+          padding: 10px;
+
+          &:not(:first-child) {
+            border-left: none;
+          }
+
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+          }
+        }
+      }
+    }
+  }
+}
